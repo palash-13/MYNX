@@ -27,10 +27,10 @@ const SpeechRecognitionComponent = () => {
       console.warn("Female voice not found. Using default voice.");
     }
     const updatedText = `The total clinic appointments are ${integerValue}`;
-    // const updatedText = integerValue;
+    
     speechutterance.text = updatedText;
   
-    // Set the response in the state
+    
     setResp(updatedText);
     
   };
@@ -183,18 +183,15 @@ const updateSpeechUtterance6= (speechutterance,integerValue)=>{
     console.warn("Female voice not found. Using default voice.");
   }
   const updatedText = `The no show appointments are ${integerValue}`;
-  // const updatedText = integerValue;
+ 
   speechutterance.text = updatedText;
 
-  // Set the response in the state
   setResp(updatedText);
   
 };
 const callApiAndGetInteger0 = () => {
   const speechutterance = new SpeechSynthesisUtterance();
   const apiUrl = 'http://52.14.102.183:8096/reporting/getCountOfAppointment/2024-01-12';
-  
-  // Replace 'YOUR_AUTH_TOKEN' with your actual authentication token
   const authToken = 'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siYXV0aG9yaXR5IjoiQWRtaW4ifV0sInN1YiI6ImRlbW9BZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjY5OTEsImV4cCI6MTcwNDk3NDE5MX0.eQ_jW9aO1t2wHZCOHA1hxRykKdtUBsruo1GluQB-ii4bgJFOjhDmCOS1IfHoh5TEPvxzlJzR6Tuy0qlwhANXEA';
 
   fetch(apiUrl, {
@@ -329,10 +326,7 @@ const callApiAndGetInteger3 = () => {
 const callApiAndGetInteger4 = () => {
   const speechutterance = new SpeechSynthesisUtterance();
   const apiUrl = 'http://52.14.102.183:8096/reporting/getCountOfAppointment/2024-01-12';
-  
-  // Replace 'YOUR_AUTH_TOKEN' with your actual authentication token
   const authToken = 'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siYXV0aG9yaXR5IjoiQWRtaW4ifV0sInN1YiI6ImRlbW9BZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjY5OTEsImV4cCI6MTcwNDk3NDE5MX0.eQ_jW9aO1t2wHZCOHA1hxRykKdtUBsruo1GluQB-ii4bgJFOjhDmCOS1IfHoh5TEPvxzlJzR6Tuy0qlwhANXEA';
-
   fetch(apiUrl, {
     headers: {
       'Authorization': `Bearer ${authToken}`,
@@ -376,10 +370,9 @@ const callApiAndGetInteger = () => {
     if (!response.ok) {
       throw new Error('Network response was not okay');
     }
-    return response.json(); // Use .json() to extract JSON data from the response
+    return response.json(); 
   })
   .then((arrayFromJSON) => {
-    // Now arrayFromJSON contains the parsed JSON data
     const nameToFind = "VB Raj";
     const findKeyByValue = (obj, valueToFind) => {
       for (let key in obj) {
@@ -450,10 +443,10 @@ const callApiAndGetInteger5 = () => {
     if (!response.ok) {
       throw new Error('Network response was not okay');
     }
-    return response.json(); // Use .json() to extract JSON data from the response
+    return response.json(); 
   })
   .then((arrayFromJSON) => {
-    // Now arrayFromJSON contains the parsed JSON data
+    
     const nameToFind = "JACQUELYN RUSH";
     const findKeyByValue = (obj, valueToFind) => {
       for (let key in obj) {
@@ -501,18 +494,12 @@ const callApiAndGetInteger5 = () => {
           }).catch((error) => {
             console.error('There was an error with this request:', error);
           });
-          
-        
-          
-        }})
-      
+        }})     
 };
 const callApiAndGetInteger6 = () => {
   const speechUtterance = new SpeechSynthesisUtterance();
   const apiUrlProviders = 'http://52.14.102.183:8096/reporting/getProvidersMap';
   const authToken = 'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siYXV0aG9yaXR5IjoiQWRtaW4ifV0sInN1YiI6ImRlbW9BZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjY5OTEsImV4cCI6MTcwNDk3NDE5MX0.eQ_jW9aO1t2wHZCOHA1hxRykKdtUBsruo1GluQB-ii4bgJFOjhDmCOS1IfHoh5TEPvxzlJzR6Tuy0qlwhANXEA';
-
-  // Fetch providers map
   fetch(apiUrlProviders, {
     headers: {
       'Authorization': `Bearer ${authToken}`,
@@ -523,10 +510,9 @@ const callApiAndGetInteger6 = () => {
     if (!response.ok) {
       throw new Error('Network response was not okay');
     }
-    return response.json(); // Use .json() to extract JSON data from the response
+    return response.json();
   })
   .then((arrayFromJSON) => {
-    // Now arrayFromJSON contains the parsed JSON data
     const nameToFind = "Jahid Niaz";
     const findKeyByValue = (obj, valueToFind) => {
       for (let key in obj) {
@@ -537,17 +523,13 @@ const callApiAndGetInteger6 = () => {
       }
       return null;
     };
-  
     const providerid = findKeyByValue(arrayFromJSON, nameToFind);
     console.log(providerid);
-  
-    
       console.log(`This is a provider id ${providerid}`);
       if (providerid) {
         console.log(providerid);
           const apiUrlProviders = `http://52.14.102.183:8096/reporting/getCountOfNoShowAppointment/${providerid}/2024-01-12`;
           console.log(apiUrlProviders);
-          
           fetch(apiUrlProviders, {
             headers: {
               'Authorization': `Bearer ${authToken}`,
@@ -574,30 +556,21 @@ const callApiAndGetInteger6 = () => {
           }).catch((error) => {
             console.error('There was an error with this request:', error);
           });
-          
-        
-          
         }})
-      
 };
   const handleSpeak = (word,voiceIndex=0) => {
     if (!speechSynthesis) {
       console.error("Speech synthesis is not available in this browser.");
       return;
     }
-
     const speechutterance = new SpeechSynthesisUtterance();
     const voices = speechSynthesis.getVoices();
-
-
     function isPreferredVoice(voices) {
-      
       return voices.lang === "en-US";
     }
     function updateSpeechUtterance() {
       const voices = speechSynthesis.getVoices();
       const preferredVoice = voices.find(isPreferredVoice);
-  
       if (preferredVoice) {
         speechutterance.voices = preferredVoice;
         speechutterance.lang = "en-US";
@@ -645,13 +618,10 @@ const callApiAndGetInteger6 = () => {
         speechutterance.text = " You have 0 appointments got today.";
       }
     }
-
-    
     updateSpeechUtterance();
     setResp(speechutterance.text);
     speechSynthesis.speak(speechutterance);
     speechSynthesis.addEventListener("voiceschanged", updateSpeechUtterance);
-    
   };
 
   const startListening = () => {
@@ -662,14 +632,8 @@ const callApiAndGetInteger6 = () => {
         recognition.onresult = (event) => {
         const recognizedTranscript = event.results[0][0].transcript;
         setTranscript(recognizedTranscript);
-
-      
         let voiceIndex =2 ; 
-
-
-        handleSpeak(recognizedTranscript, voiceIndex);
-  
-        
+        handleSpeak(recognizedTranscript, voiceIndex); 
       };
     }
      else {
